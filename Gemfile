@@ -45,3 +45,5 @@ gem 'active_model_serializers'
 gem 'rails_admin'
 
 gem 'devise'
+
+gem 'cancancan'
