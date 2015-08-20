@@ -1,0 +1,24 @@
+<div class="movie">
+<span class="title"><%= movie.title %>
+  (<%= movie.release_date.year %>)</span>
+  <%= print_date(movie) %> <br>
+<span class="duration"><%= movie.duration %> min. /
+  <%= print_duration(movie) %></span> <br>
+
+  <table>
+    <tr>
+      <% Occupation.all.map { |o| o.title }.each do |occupation_title| %>
+          <td>
+            <% current_occupation = movie.contracts.select { |c| c.occupation.title == occupation_title } %>
+            <% unless current_occupation.empty? %>
+                <b><%= occupation_title %>s :</b> <br>
+                <% current_occupation.each do |contract| %>
+                    <%= print_name(contract.cast) %> <br>
+                <% end %>
+            <% end %>
+          </td>
+      <% end %>
+    </tr>
+  </table>
+</div>
+<hr>

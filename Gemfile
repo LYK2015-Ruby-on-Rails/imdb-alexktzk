@@ -36,3 +36,12 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 end
 
+gem 'pry'
+
+gem 'pry-rails'
+
+gem 'active_model_serializers'
+
+gem 'rails_admin'
+
+gem 'devise'

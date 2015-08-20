@@ -1,0 +1,12 @@
+.movie {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.movie .title {
+    font-size: 32px;
+}
+
+.movie .duration {
+    font-size: 13px;
+}
