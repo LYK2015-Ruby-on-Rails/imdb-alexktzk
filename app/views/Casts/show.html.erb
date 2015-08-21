@@ -1,15 +1,25 @@
-<%= render @cast %>
+<div><%= render @cast %></div>
+
+<!-- All Occupations -->
 <% @occupations.each do |occupation| %>
+
+    <!-- Contracts with current occupation -->
     <% contracts = @cast.contracts.where(occupation_id: occupation.id) %>
     <% unless contracts.nil? || contracts.empty? %>
-        <b><%= occupation.title %></b> <br>
-        <% contracts.each do |contract| %>
-            <% unless contract.movie.nil? %>
-                <a href="<%= movie_path(contract.movie.id) %>">
-                  <%= image_tag contract.movie.poster.url(:mini) %>
-                </a>
-            <% end %>
-        <% end %>
-        <br>
+
+        <!-- Current occupation title-->
+        <div class="movies"><span class="occupation_title"><%= occupation.title %></span> <br>
+          <% contracts.each do |contract| %>
+              <% unless contract.movie.nil? %>
+
+                  <!-- Movie title and link to it path -->
+                  <a href="<%= movie_path(contract.movie.id) %>">
+
+                    <!-- Avatar -->
+                    <%= image_tag contract.movie.poster.url(:mini) %>
+                  </a>
+              <% end %>
+          <% end %>
+        </div>
     <% end %>
 <% end %>

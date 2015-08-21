@@ -1,3 +1,28 @@
+.cast {
+    margin: 2% 10%;
+}
+
+.cast.frame {
+    box-shadow: 0px -15px 20px 15px rgb(247,247,247);
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
 .cast .name {
     font-size: 32px;
+}
+
+.cast img {
+    padding: 15px;
+    border-radius: 5%;
+}
+
+.occupation_title {
+    font-size: 24px;
+}
+
+.movies {
+    margin-left: 10%;
+    margin-bottom: 2%;
 }

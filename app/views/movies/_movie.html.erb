@@ -30,7 +30,8 @@
             <% unless current_occupation.empty? %>
                 <span class="occupation">
                 <b><%= occupation_title %>s :</b>
-                  <%= current_occupation.map { |c| print_name(c.cast) }.join(", ") %> <br>
+                  <%= current_occupation.map { |c| link_to print_name(c.cast), cast_path(c.cast.id) }.join(", ") %>
+                  <br>
                 </span>
             <% end %>
         <% end %><br>

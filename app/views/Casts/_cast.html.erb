@@ -1,6 +1,8 @@
-<p class="cast">
-  <span class="name"><%= print_name(cast) %></span> <br>
-  Born: <%= cast.born.strftime("%e %b %Y") %>,
-  <%= cast.nationality %> <br>
-
+<p class="cast frame">
+  <a class="name" href="<%= cast_path(cast.id) %>"><%= print_name(cast) %></a> <br>
+  Born: <%= cast.born.strftime("%e %b %Y") %> <br>
+  <%= image_tag cast.avatar.url(:poster_size), align: 'left' %>
+  <%= cast.biography %>
+  <%= cast.nationality %>
+  <br> <br> <br> <br> <br>
 </p>
