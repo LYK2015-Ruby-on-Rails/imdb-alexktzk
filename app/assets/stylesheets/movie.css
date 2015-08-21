@@ -16,6 +16,7 @@
 
 .movie .release_year {
     font-size: 22px;
+    opacity: 0.8;
 }
 
 .movie .duration {
@@ -28,12 +29,26 @@
 
 .movie .description {
     font-size: 18px;
+    margin-left: 10px;
 }
 
 .movie .occupation {
     font-size: 14px;
+    margin-left: 10px;
 }
 
 .movie .poster {
-    padding-right: 20px;
+
+}
+
+.movie .ratings {
+    float: right;
+}
+
+.back {
+    margin: 10%;
+    position: absolute;
+    float: left;
+    font-size: 32px;
+    font-weight: bold;
 }

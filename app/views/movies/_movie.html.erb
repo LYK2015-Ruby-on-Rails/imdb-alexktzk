@@ -1,15 +1,18 @@
 <div class="movie frame">
 
-
   <!-- TITLE-->
   <%= link_to movie.title, movie_path(movie.id), class: :title %>
-  <%= rating_for movie, 'title' %>
 
+  <!-- Ratings -->
+  <span class="ratings"><%= rating_for movie, 'title' %></span>
+
+  <!-- Release-->
   <span class="release_year">(<%= movie.release_date.year %>)</span>
-  <!-- RELEASE -->
   <%= print_date(movie) %> <br>
+
   <!-- GENRES-->
   <%= movie.genres.map { |g| g.title }.sort.join(" | ") %> <br>
+
   <!-- DURATION -->
   <span class="duration"><%= movie.duration %> min. / <%= print_duration(movie) %></span>
 
@@ -17,18 +20,21 @@
     <tr>
       <!-- POSTER -->
       <td>
-        <%= image_tag movie.poster.url(:poster_size) %>
+        <span class="poster"><%= image_tag movie.poster.url(:poster_size) %></span>
       </td>
 
       <!-- DIRECTORS/ACTORS -->
-      <td class="occupation">
+      <td>
         <% Occupation.all.map { |o| o.title }.each do |occupation_title| %>
             <% current_occupation = movie.contracts.select { |c| c.occupation.title == occupation_title } %>
             <% unless current_occupation.empty? %>
+                <span class="occupation">
                 <b><%= occupation_title %>s :</b>
-                <%= current_occupation.map { |c| print_name(c.cast) }.join(", ") %> <br>
+                  <%= current_occupation.map { |c| print_name(c.cast) }.join(", ") %> <br>
+                </span>
             <% end %>
-        <% end %>
+        <% end %><br>
+
         <!-- DESCRIPTION -->
         <p class="description"><%= movie.description %></p>
       </td>
