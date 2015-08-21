@@ -1,9 +1,12 @@
 class CastsController < ApplicationController
   before_action :cast_params, only: [:create]
   before_action :all_occupations, only: [:show]
-  before_action :set_cast, only: [:show]
+  before_action :set_cast, only: [:show, :edit]
 
   def show
+  end
+
+  def edit
   end
 
   def index
