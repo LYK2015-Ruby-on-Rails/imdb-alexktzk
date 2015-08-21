@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :avatar
     devise_parameter_sanitizer.for(:account_update) << :avatar
   end
+
+  def all_movies; @movies = Movie.all end
+  def all_genres; @genres = Genre.all end
+  def all_occupations; @occupations = Occupation.all end
 end

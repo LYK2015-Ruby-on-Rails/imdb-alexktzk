@@ -7,7 +7,7 @@ module CastsHelper
   end
 
   def print_cast_occupations(cast)
-    cast.occupations.map { |e| e.title }.join(", ")
+    cast.occupations.map { |e| e.title }.uniq.join(", ")
   end
 
 end

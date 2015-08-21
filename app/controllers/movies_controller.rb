@@ -5,8 +5,10 @@ class MoviesController < ApplicationController
   before_action :movie_params, only: [:create]
   before_action :set_movie, only: [:show, :edit, :update]
 
-  def index
-  end
+  def index; end
+  def edit; end
+  def show; end
+
 
   def new
     @movie = Movie.new
@@ -19,21 +21,12 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-  def edit
-  end
-
   def update
     @movie.update(movie_params)
     redirect_to movies_path
   end
 
-  def show
-    # comment = @movie.comments.create
-    # comment.user = current_user
-    # comment.title = "First comment."
-    # comment.comment = "This is the first comment."
-    # comment.save
-  end
+
 
   private
   def set_movie
@@ -43,16 +36,5 @@ class MoviesController < ApplicationController
   def movie_params
     params.require(:movie).permit(:title, :release_date, :duration,
                                   :poster, :genre_ids, :description)
-  end
-
-  def all_occupations
-    @occupations = Occupation.all
-  end
-  def all_movies
-    @movies = Movie.all
-  end
-
-  def all_genres
-    @genres = Genre.all
   end
 end

@@ -1,6 +1,20 @@
-<p>
-  <b><%= print_name(cast) %></b> <br>
+<p class="cast">
+  <span class="name"><%= print_name(cast) %></span> <br>
   Born: <%= cast.born.strftime("%e %b %Y") %>,
   <%= cast.nationality %> <br>
-  <%= print_cast_occupations(cast) %>
+
+  <% @occupations.each do |occupation| %>
+      <% contracts = cast.contracts.where(occupation_id: occupation.id) %>
+      <% unless contracts.nil? || contracts.empty? %>
+          <b><%= occupation.title %></b> <br>
+          <% contracts.each do |contract| %>
+              <% unless contract.movie.nil? %>
+                  <a href="<%= movie_path(contract.movie.id) %>">
+                    <%= image_tag contract.movie.poster.url(:mini) %>
+                  </a>
+              <% end %>
+          <% end %>
+          <br>
+      <% end %>
+  <% end %>
 </p>
