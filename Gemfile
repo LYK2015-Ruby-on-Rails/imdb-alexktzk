@@ -47,3 +47,7 @@ gem 'rails_admin'
 gem 'devise'
 
 gem 'cancancan'
+
+gem 'paperclip'
+
+gem 'ratyrate'

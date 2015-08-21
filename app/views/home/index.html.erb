@@ -1,3 +1,5 @@
-<%= link_to :Movies, movies_path %>
+<p><%= link_to :Movies, movies_path %></p>
 
-<%= link_to :Casts, casts_path %>
+<p><%= link_to :Casts, casts_path %></p>
+
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>

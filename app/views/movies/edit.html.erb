@@ -1,0 +1,28 @@
+<%= form_for :movie, url: movie_path, method: :put, :html => { :multipart => true } do |f| %>
+
+    <p><%= f.text_field :title %>
+      <%= f.label :title %></p>
+
+    <p><%= f.date_select :release_date,
+                         use_short_month: true,
+                         start_year: current_year,
+                         end_year: 1896,
+                         prompt: true %>
+
+    <p><%= f.text_field :duration %>
+      <%= f.label :duration %></p>
+
+    <%= f.text_area :description %>
+
+
+    <p>
+      <% @genres.each do |genre| %>
+          <%= check_box_tag 'movie[genre_ids][]', genre.id %>
+          <%= genre.title %> <br>
+      <% end %>
+    </p>
+
+    <p><%= f.file_field :poster %></p>
+
+    <%= f.submit :Save %>
+<% end %>

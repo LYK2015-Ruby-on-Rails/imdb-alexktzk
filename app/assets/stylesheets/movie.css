@@ -1,12 +1,35 @@
 .movie {
-    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+}
+
+.movie.frame {
+    box-shadow: 0px -15px 20px 15px rgb(247,247,247);
+    background-color: white;
+    border-radius: 5px;
     padding: 20px;
 }
 
 .movie .title {
-    font-size: 32px;
+    font-size: 28px;
+}
+
+.movie .release_year {
+    font-size: 22px;
 }
 
 .movie .duration {
     font-size: 13px;
+}
+
+.movie .genre {
+    font-size: 16px;
+}
+
+.movie .description {
+    font-size: 18px;
+}
+
+.movie .occupation {
+    font-size: 14px;
 }

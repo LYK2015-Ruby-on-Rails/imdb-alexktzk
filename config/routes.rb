@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
   root 'home#index'
 
   resources :casts
   resources :movies
+
+  get 'movies/search' => 'movies#search'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

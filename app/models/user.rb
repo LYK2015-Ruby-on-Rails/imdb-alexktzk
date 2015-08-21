@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
          :validatable,
          :recoverable,
          :trackable
+
+  ratyrate_rater
 end

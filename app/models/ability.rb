@@ -7,6 +7,8 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.admin?
         can :manage, :all
+      elsif user.moderator?
+        can :manage, [Movie, Cast]
       else
         can :read, :all
       end
