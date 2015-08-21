@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'movies/search' => 'movies#search'
 
+  resources :comments
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

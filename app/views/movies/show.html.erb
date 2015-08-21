@@ -1,0 +1,50 @@
+<%= render @movie %>
+
+
+<div class="detailBox">
+
+
+  <div class="titleBox">
+    <label>Comment Box</label>
+    <button type="button" class="close" aria-hidden="true">&times;</button>
+  </div>
+
+
+  <div class="commentBox">
+    <p class="taskDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+  </div>
+
+
+  <div class="actionBox">
+
+    <!-- Comments -->
+    <ul class="commentList">
+      <%= render 'comments/comments', movie: @movie %>
+    </ul>
+
+    <%= form_for @movie.comments.new, class: 'form-inline', remote: true do |f| %>
+        <div class="form-group">
+          <%= f.text_field :comment, class: 'form-control' %>
+        </div>
+        <%= f.hidden_field :commentable_id, value: @movie.id %>
+        <%= f.hidden_field :commentable_type, value: @movie.class %>
+        <div class="form-group">
+          <%= f.submit :Add, class: 'btn btn-default' %>
+        </div>
+    <% end %>
+
+    <form class="form-inline" role="form">
+
+      <div class="form-group">
+        <input class="form-control" type="text" placeholder="Your comments"/>
+      </div>
+
+
+      <div class="form-group">
+        <button class="btn btn-default">Add</button>
+
+      </div>
+
+    </form>
+  </div>
+</div>

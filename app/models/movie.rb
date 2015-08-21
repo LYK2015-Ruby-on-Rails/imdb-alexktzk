@@ -14,6 +14,7 @@ class Movie < ActiveRecord::Base
 
   ratyrate_rateable 'title'
 
+  acts_as_commentable
 
   def sign_contracts(occupation_ids)
     occupation_ids.each_with_index do |occupation|

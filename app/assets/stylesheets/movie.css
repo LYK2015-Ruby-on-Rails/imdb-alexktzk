@@ -33,3 +33,7 @@
 .movie .occupation {
     font-size: 14px;
 }
+
+.movie .poster {
+    padding-right: 20px;
+}

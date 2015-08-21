@@ -19,7 +19,7 @@ class CastsController < ApplicationController
 
   def sign_contracts(occupation_ids)
     occupation_ids.reject(&:empty?).each do |occupation_id|
-      Contract.create(cast_id: @cast.id, occupation_id: occupation_id.to_i, movie_id: 1)
+      Contract.find_or_create_by!(cast_id: @cast.id, occupation_id: occupation_id.to_i, movie_id: 1)
     end
   end
 

@@ -1,0 +1,15 @@
+<% movie.comments.recent.limit(10).all.each do |comment| %>
+    <li>
+      <!-- Avatar -->
+      <div class="commenterImage">
+        <%= image_tag comment.user.avatar.url(:comments_avatar) %>
+      </div>
+
+
+      <div class="commentText">
+        <%= comment.comment %> <br>
+        <span class="date sub-text"><%= date_commented(comment) %></span>
+      </div>
+    </li>
+
+<% end %>

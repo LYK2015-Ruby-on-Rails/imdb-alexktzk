@@ -51,3 +51,5 @@ gem 'cancancan'
 gem 'paperclip'
 
 gem 'ratyrate'
+
+gem 'acts_as_commentable'

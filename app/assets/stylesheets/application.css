@@ -33,3 +33,12 @@ body {
     left: 25%;
     right: 25%;
 }
+
+a {
+    text-decoration: none;
+    color: steelblue;
+}
+
+a:visited {
+    color: steelblue;
+}

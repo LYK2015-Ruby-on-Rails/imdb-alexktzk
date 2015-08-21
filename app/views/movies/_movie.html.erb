@@ -2,7 +2,7 @@
 
 
   <!-- TITLE-->
-  <span class="title"><%= movie.title %></span>
+  <%= link_to movie.title, movie_path(movie.id), class: :title %>
   <%= rating_for movie, 'title' %>
 
   <span class="release_year">(<%= movie.release_date.year %>)</span>
