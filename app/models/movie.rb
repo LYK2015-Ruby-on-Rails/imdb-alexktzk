@@ -1,4 +1,7 @@
+require 'elasticsearch/model'
+
 class Movie < ActiveRecord::Base
+  include Elasticsearch::Model
 
   has_many :contracts
   has_many :occupations, through: :contracts

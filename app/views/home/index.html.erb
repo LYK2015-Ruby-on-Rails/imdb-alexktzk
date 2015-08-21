@@ -1,5 +1,8 @@
-<p><%= link_to :Movies, movies_path %></p>
-
-<p><%= link_to :Casts, casts_path %></p>
-
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<div class="sides">
+  <a href="<%= casts_path %>">
+    <span class="right">Casts</span>
+  </a>
+  <a href="<%= movies_path %>">
+    <span class="left">Movies</span>
+  </a>
+</div>

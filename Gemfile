@@ -53,3 +53,5 @@ gem 'paperclip'
 gem 'ratyrate'
 
 gem 'acts_as_commentable'
+
+gem 'elasticsearch-model'
