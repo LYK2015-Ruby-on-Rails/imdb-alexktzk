@@ -32,4 +32,10 @@ class Movie < ActiveRecord::Base
       GenreMovie.create(genre_id: id.to_i, movie_id: self.id)
     end
   end
+
+  def update_genres(genre_ids)
+    genre_ids.each do |id|
+      # self.update(genre_id: id.to_i)
+    end
+  end
 end

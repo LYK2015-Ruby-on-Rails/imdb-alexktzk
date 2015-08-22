@@ -1,41 +1,45 @@
-<%= form_for :movie, url: movies_path, :html => { :multipart => true } do |f| %>
+<br>
+<div class="container">
+  <%= form_for :movie, url: movies_path, :html => { :multipart => true } do |f| %>
 
-    <p><%= f.text_field :title %>
-      <%= f.label :title %></p>
+      <p><%= f.text_field :title %>
+        <%= f.label :title %></p>
 
-    <p><%= f.date_select :release_date,
-                         use_short_month: true,
-                         start_year: current_year,
-                         end_year: 1896,
-                         prompt: true %>
+      <p><%= f.date_select :release_date,
+                           use_short_month: true,
+                           start_year: current_year,
+                           end_year: 1896,
+                           prompt: true %>
 
-    <p><%= f.text_field :duration %>
-      <%= f.label :duration %></p>
+      <p><%= f.text_field :duration %>
+        <%= f.label :duration %></p>
 
-    <p>
-      <% @genres.each do |genre| %>
-          <%= check_box_tag 'movie[genre_ids][]', genre.id %>
-          <%= genre.title %> <br>
-      <% end %>
-    </p>
-
-    <table>
-      <tr>
-        <% @occupations.each do |occupation| %>
-            <td>
-              <b><%= occupation.title %></b><br>
-              <% Contract.where(occupation_id: occupation.id).to_a.uniq(&:cast_id).each do |contract| %>
-                  <%= check_box_tag 'movie[occupation_ids]['+occupation.id.to_s+'][]', contract.cast_id %>
-                  <%= print_name(contract.cast) %> <br>
-              <% end %>
-            </td>
+      <p>
+        <% @genres.each do |genre| %>
+            <%= check_box_tag 'movie[genre_ids][]', genre.id %>
+            <%= genre.title %> <br>
         <% end %>
-      </tr>
-    </table>
+      </p>
 
-    <p><%= f.text_area :description %></p>
+      <table>
+        <tr>
+          <% @occupations.each do |occupation| %>
+              <td>
+                <b><%= occupation.title %></b><br>
+                <% Contract.where(occupation_id: occupation.id).to_a.uniq(&:cast_id).each do |contract| %>
+                    <%= check_box_tag 'movie[occupation_ids]['+occupation.id.to_s+'][]', contract.cast_id %>
+                    <%= print_name(contract.cast) %> <br>
+                <% end %>
+              </td>
+          <% end %>
+        </tr>
+      </table>
 
-    <p><%= f.file_field :poster %></p>
+      <p><%= f.text_area :description %></p>
 
-    <%= f.submit :Save %>
-<% end %>
+      <p><%= f.file_field :poster %></p>
+
+      <%= f.submit :Save %>
+  <% end %>
+
+</div>

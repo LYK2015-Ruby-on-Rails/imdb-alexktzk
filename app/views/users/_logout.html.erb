@@ -1,1 +1,5 @@
-<%= button_to 'Log out', destroy_user_session_path, class:'btn logout', method: :delete %>
+<div class="logout">
+  <%= button_to 'New movie', new_movie_path, class: 'btn', method: :get %>
+  <%= button_to 'New cast', new_cast_path, class: 'btn', method: :get %>
+  <%= button_to 'Log out', destroy_user_session_path, class: 'btn', method: :delete %>
+</div>

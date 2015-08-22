@@ -4,16 +4,18 @@
   <%= link_to movie.title, movie_path(movie.id), class: :title %>
 
   <!-- Ratings -->
-  <span class="ratings"><%= rating_for movie, 'title' %></span>
+  <span class="ratings">
+    <%= rating_for movie, 'title'  %>
+  </span>
 
   <!-- Release-->
   <span class="release_year">(<%= movie.release_date.year %>)</span>
-  <%= print_date(movie) %> <br>
+  <%= print_date(movie) %>
+  <%= link_to :edit, edit_movie_path(movie) %>
+  <br>
 
   <!-- GENRES-->
-  <% movie.genres.sort.map do |g| %>
-      <%= link_to g.title, movies_path %>
-  <% end %>
+  <%= movie.genres.sort.map{|g| g.title}.join(", ") %> <br>
 
   <!-- DURATION -->
   <span class="duration"><%= movie.duration %> min. / <%= print_duration(movie) %></span>
