@@ -11,7 +11,9 @@
   <%= print_date(movie) %> <br>
 
   <!-- GENRES-->
-  <%= movie.genres.map { |g| g.title }.sort.join(" | ") %> <br>
+  <% movie.genres.sort.map do |g| %>
+      <%= link_to g.title, movies_path %>
+  <% end %>
 
   <!-- DURATION -->
   <span class="duration"><%= movie.duration %> min. / <%= print_duration(movie) %></span>
@@ -30,7 +32,10 @@
             <% unless current_occupation.empty? %>
                 <span class="occupation">
                 <b><%= occupation_title %>s :</b>
-                  <%= current_occupation.map { |c| link_to print_name(c.cast), cast_path(c.cast.id) }.join(", ") %>
+                  <% current_occupation.each do |c| %>
+                      <%= link_to (c.equal?(current_occupation.first) ? print_name(c.cast) : ", #{print_name(c.cast)}"),
+                                  cast_path(c.cast.id) %>
+                  <% end %>
                   <br>
                 </span>
             <% end %>

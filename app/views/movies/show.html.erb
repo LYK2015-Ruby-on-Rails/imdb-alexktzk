@@ -4,11 +4,9 @@
 
 <div class="detailBox">
 
-
   <div class="titleBox">
     Share your expressions ;)
   </div>
-
 
   <div class="commentBox">
     Bla bla bla
@@ -29,7 +27,7 @@
           <%= f.hidden_field :commentable_id, value: @movie.id %>
           <%= f.hidden_field :commentable_type, value: @movie.class %>
           <span class="form-group">
-            <%= f.submit :Add, class: 'btn btn-default' %>
+            <%= f.submit :Add, class: 'btn btn-default', :data => {:disable_with => "Sending..."} %>
           </span>
         </span>
     <% end %>
