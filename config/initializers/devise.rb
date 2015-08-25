@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'some@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -235,7 +235,8 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, '1658868687666819', 'ad05553baa272f49b25c982135574d87', scope: 'email', info_fields: 'email'
+  config.omniauth :twitter, 'Me01KoZX5OJCIwhTIylJvab06', 'S4AnouZ55DA1e63TXVFFs9NepKbgOVhHGI1DIzh6tVHIdIU99p'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

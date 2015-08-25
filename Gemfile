@@ -55,3 +55,8 @@ gem 'ratyrate'
 gem 'acts_as_commentable'
 
 gem 'elasticsearch-model'
+
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'

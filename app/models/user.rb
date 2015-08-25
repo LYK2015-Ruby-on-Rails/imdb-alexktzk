@@ -3,10 +3,21 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
          :registerable,
-         :rememberable,
-         :validatable,
          :recoverable,
-         :trackable
+         :rememberable,
+         :trackable,
+         :validatable,
+         :omniauthable,
+         :omniauth_providers => [:facebook, :twitter]
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = user.provider == "twitter" ? auth.info.nickname : auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+    end
+  end
 
 
   has_attached_file :avatar,
